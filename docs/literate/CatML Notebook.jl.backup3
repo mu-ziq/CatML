@@ -4,7 +4,6 @@
 using Markdown
 using InteractiveUtils
 
-# ╔═╡ 67e66e34-0d4a-11eb-3b5b-43f479616a85
 begin
 	import Pkg
 	Pkg.activate(mktempdir())
@@ -33,7 +32,6 @@ $$\frac{\pi^2}{6}$$
 "
 
 # ╔═╡ Cell order:
-# ╠═67e66e34-0d4a-11eb-3b5b-43f479616a85
 # ╟─9c76b242-0d44-11eb-17c5-f52a44933839
 # ╟─0488798a-0d4d-11eb-1a63-eb9077a04fe1
 # ╠═7d979b28-0d5a-11eb-347e-5def8d0a9e49
