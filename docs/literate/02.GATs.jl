@@ -298,7 +298,85 @@ show_diagram(d)
 md"#### Why is this important?
 
 This category allows us to build up **parallel** and **sequential** operations that combine the inputs and outputs in a data flow pipeline.  This is an extremely common abstraction that appears in many different settings, including ETL pipelines, machine-learning pipelines, robotic process automation, process flows, activity sequence, etc.  With this pattern identified and formalized, we can now apply all the rules and receive guarantees they will keep the system consistent and coherent as it operates between the different levels of representation and operationalization.
+
+
+# ╔═╡ f1652868-0e4f-11eb-09e5-7b23b575cb71
+md"# Programming with Pictures
+
+One of the primary reasons for working in applied category theory is that the theory comes with pictures that describe *generalized constructions*.  Since these diagrams combine according to well-defined rules, we can automatically derive an algorithm for generating the concept the diagram depicts.
+
+Some of the constructions used and the ideas they generalize and combine are described in the following section.
 "
+
+# ╔═╡ 297b65ba-0e54-11eb-0155-a1a875ab76ce
+md"## Generalized Constructions
+"
+
+# ╔═╡ 3ec91070-0e54-11eb-0386-c98335d1cf39
+md"### Initial Objects
+
+The initial object construction, $0\to A$, captures the idea of the *empty set*.
+"
+
+# ╔═╡ 946c2fda-0e54-11eb-1a52-9dcf21f9cecc
+initial(::Type{FinOrd}) = FinOrd(0)
+
+# ╔═╡ 4c62fd26-0e55-11eb-3a35-9f9041680b3c
+md"### Coproducts
+
+The coproduct construction:
+
+```math
+\begin{align}
+i_1&:A\to A\sqcup B \\
+i_2&:B\to A\sqcup B
+\end{align}
+```
+
+captures the idea of the *disjoint union* of two sets.
+"
+
+# ╔═╡ b0372a0c-0e55-11eb-2033-91ac11f8d181
+function coproduct(A::FinOrd, B::FinOrd)
+	m, n = A.n, B.n
+	i1 = FinOrdMap(1:m, m, m + n)
+	i2 = FinOrdMap(m + 1:m + n, n, m + n)
+	Cospan(i1, i2)
+end
+
+
+# ╔═╡ e02290a0-0e55-11eb-2f52-35602e9f0f3b
+md"### Coequalizers
+
+The coequalizer construction:
+
+```math
+E\xleftarrow{u} A\leftleftarrows B
+```
+
+captures the idea of an *equivalence relation*.  $A$ and $B$ are related by two functions, $f$ and $g$, that map the same input $B$ to the same output $A$.
+"
+
+# ╔═╡ 1bf71d5a-0e57-11eb-2b67-63e3f86a8737
+md"### Pushouts
+
+A pushout combines these constructions:
+
+```math
+pushout(f, g) = u = coequalizer(f\cdot i_1, g\cdot i_2)
+```
+
+captures the idea of **set union**"
+
+
+# ╔═╡ ea318228-0e57-11eb-09d6-bb54b8d0d2e2
+function pushout(span::Span(<:FinOrdMap, <:FinOrdMap))
+	f, g = left(span), right(span)
+	coprod = coproduct(codom(F), codom(g))
+	i1, i2 = left(coprod), right(coprod)
+	u = coequalizer(f ⋅ i1, g ⋅ i2)
+	Cospan(i1 ⋅ u, i2 ⋅ u)
+end
 
 # ╔═╡ Cell order:
 # ╟─855fc742-0e07-11eb-1172-d7e7a0c01d7e
@@ -332,3 +410,12 @@ This category allows us to build up **parallel** and **sequential** operations t
 # ╠═becbc10c-0e37-11eb-10be-a9df5b483bd3
 # ╟─73fd3d5a-0e38-11eb-054b-270be525a13f
 # ╟─572a8492-0e3f-11eb-14b8-a5b3a9605e05
+# ╟─f1652868-0e4f-11eb-09e5-7b23b575cb71
+# ╟─297b65ba-0e54-11eb-0155-a1a875ab76ce
+# ╟─3ec91070-0e54-11eb-0386-c98335d1cf39
+# ╠═946c2fda-0e54-11eb-1a52-9dcf21f9cecc
+# ╟─4c62fd26-0e55-11eb-3a35-9f9041680b3c
+# ╠═b0372a0c-0e55-11eb-2033-91ac11f8d181
+# ╟─e02290a0-0e55-11eb-2f52-35602e9f0f3b
+# ╟─1bf71d5a-0e57-11eb-2b67-63e3f86a8737
+# ╠═ea318228-0e57-11eb-09d6-bb54b8d0d2e2
