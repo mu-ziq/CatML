@@ -47,16 +47,41 @@ And this is what this notebook is about.
 "
 
 # ╔═╡ c0d2013e-0e0c-11eb-206b-eff9c574914c
-md"## Model-Driven Scientific Software
+md"## Model-Driven Scientific Software"
 
+# ╔═╡ bde0a2d4-0e6c-11eb-1dcf-5b4501121603
+md"
 What is the best way to develop software in technical fields, such as industrial, manufacturing, energy, chemical, pharma, health, aerospace, geo, government, finance, physics, and increasingly law, policy, contract, trade, logistics, supply chain, ...?
+"
 
+# ╔═╡ ad52fa34-0e6c-11eb-1290-953177813bee
+md"
 Systems developed in many of these domains must operate under the strictist of requirements, compliance, and governance due to the risks involved in their failure.  We turn to formal methods to give the greatest assurance under the widest conditions that the desired outcomes are achieved and the undesired outcomes are avoided.  We often want to min/max, find the global optimum, and, ultimately, **improve over time** through machine learning and subsystem development or extension.
+"
 
+# ╔═╡ a57cb2b4-0e6c-11eb-22f5-dfafc11247ad
+md"
 A software framework aims to improve the iterative paths between conception, expression, manifestation, and verification.  Technical software development involves domain experts, data scientists, and researchers.  Development tools and processes must cater to the diverse needs of these experts while unifying them in their shared goal of delivering real-world systems.
+"
 
-The path between conception and expression, these fields often use domain-appropriate modeling tools, such as circuit diagrams, process flows, Feynman diagrams, formulae, etc.  These formal diagrams are really *graphical programming languages* that describe physical systems.  From these, we can construct *simulations* that allows us to answer questions and solve problems.  These are **digital twins** of physical systems (not just of physical assets, as the term commonly means today).
+# ╔═╡ 8afb856e-0e6c-11eb-2f69-1ff244024a8b
+md"The path between conception and expression, these fields often use domain-appropriate modeling tools, such as circuit diagrams, process flows, Feynman diagrams, formulae, etc.  These formal diagrams are really *graphical programming languages* that describe physical systems.
+"
 
+# ╔═╡ d7902c72-0e6c-11eb-013b-af23e991c932
+md"
+![Electronic Circuit](images/circuit.png)
+![Process Flow](images/process.png)
+![Feynman Diagram](images/feynman.png)
+![Quantum Circuit](images/quantum.png)
+"
+
+# ╔═╡ d26398f6-0e6c-11eb-0967-af43907da648
+md"From these, we can construct *simulations* that allows us to answer questions and solve problems.  These are **digital twins** of physical systems (not just of physical assets, as the term commonly means today).
+"
+
+# ╔═╡ 95c8c5c4-0e6c-11eb-0351-8360c7d6532e
+md"
 **Generalized algebraic theories** (GATs) provide a mathematical foundation for achieving this seemingly impossible task.  As we hope to show throughout these notebooks, not only is it possible, it's already happening.
 "
 
@@ -382,6 +407,13 @@ end
 # ╟─855fc742-0e07-11eb-1172-d7e7a0c01d7e
 # ╟─eaf00702-0e07-11eb-2030-7dfa450e22ad
 # ╟─c0d2013e-0e0c-11eb-206b-eff9c574914c
+# ╟─bde0a2d4-0e6c-11eb-1dcf-5b4501121603
+# ╟─ad52fa34-0e6c-11eb-1290-953177813bee
+# ╟─a57cb2b4-0e6c-11eb-22f5-dfafc11247ad
+# ╟─8afb856e-0e6c-11eb-2f69-1ff244024a8b
+# ╟─d7902c72-0e6c-11eb-013b-af23e991c932
+# ╟─d26398f6-0e6c-11eb-0967-af43907da648
+# ╟─95c8c5c4-0e6c-11eb-0351-8360c7d6532e
 # ╟─79b299d2-0e12-11eb-1f72-4958cad0ad03
 # ╟─4e216c4a-0e16-11eb-0e55-ab5ef3f2f4a7
 # ╠═06550dbe-0e1a-11eb-0c47-113a4b2fcc20

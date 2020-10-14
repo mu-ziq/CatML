@@ -32,11 +32,14 @@ begin
 end
 
 # ╔═╡ f1652868-0e4f-11eb-09e5-7b23b575cb71
-md"# Epidemiology
+md"# Epidemiology"
 
-![Electronic Circuit](./images/kim.gif)
+# ╔═╡ fca2a0ee-0e6f-11eb-1741-6705c0402d34
+md"
+![Epidemiology Graph](images/epidemiology.svg)
 "
 
 # ╔═╡ Cell order:
 # ╟─b164563c-0e54-11eb-0a14-21775ffefaf1
 # ╟─f1652868-0e4f-11eb-09e5-7b23b575cb71
+# ╠═fca2a0ee-0e6f-11eb-1741-6705c0402d34
