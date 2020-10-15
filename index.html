@@ -1,28 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>CatML</title>
+    <meta name="viewport" content="width=device-width" />
+    <title>😻 CatML.jl 😻</title>
+    <meta charset="utf-8" />
+    <script>
+      console.log(
+        "CatML.jl, by Donald Thompson (https://github.com/witt3rd) 🕹"
+      );
+    </script>
+    <meta name="author" content="Donald Thompson" />
+    <link
+      rel="license"
+      href="https://github.com/witt3rd/CatML.jl/blob/master/LICENSE"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="img/favicon-96x96.png"
+    />
+    <meta name="description" content="CatML.jl notebooks" />
+
+    <script src="common/RegisterSW.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@observablehq/stdlib@3.3.1/dist/stdlib.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/codemirror@5.57.0/lib/codemirror.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/codemirror@5.57.0/addon/hint/show-hint.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/codemirror@5.57.0/addon/display/placeholder.min.js"
+      defer
+    ></script>
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/codemirror@5.57.0/lib/codemirror.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/codemirror@5.57.0/addon/hint/show-hint.min.css"
+    />
+
+    <link rel="stylesheet" href="index.css" />
+
+    <script src="index.js" type="module" defer></script>
+    <script src="warn_old_browsers.js"></script>
   </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="jumbotron" style="margin-top: 200px;">
-            <h1 class="text-center">Categorical Modeling Language</h1>
-            <h3 class="text-center">Notebooks in Computational Category Theory</h3>
-            <br><br>
-            <ul class="list-group">
-              <li class="list-group-item"><a href="./01.Cats.jl.html">01. Category Theory</a></li>
-              <li class="list-group-item"><a href="./02.GATs.jl.html">02. Generalized Algebraic Theories</a></li>
-              <li class="list-group-item"><a href="./03.Epidemiology.jl.html">03. Epidemiology</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+
+  <body class="loading nosessions">
+    <loading-bar></loading-bar>
+    <div id="title">
+      <h1>welcome to <img src="img/logo.svg" /></h1>
+      <main>
+        <p>New session:</p>
+        <ul id="new">
+          <li><a href="./01.Cats.jl.html">01. Category Theory</a></li>
+          <li>
+            <a href="./02.GATs.jl.html">02. Generalized Algebraic Theories</a>
+          </li>
+          <li>
+            <a href="./03.Epidemiology.jl.html"
+              >03. Programming with Pictures</a
+            >
+          </li>
+        </ul>
+      </main>
     </div>
   </body>
 </html>
