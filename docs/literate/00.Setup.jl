@@ -79,6 +79,22 @@ sudo apt install texlive-full
 ```
 "
 
+# ╔═╡ 91c64008-0eeb-11eb-39d8-93d931c759f0
+md"### Get Graphviz
+
+#### macOS
+
+```bash
+brew install graphviz
+```
+
+#### Ubuntu
+
+```bash
+sudo apt install graphviz
+```
+"
+
 # ╔═╡ f32be208-0ee1-11eb-2558-b11510ea48ce
 md"
 ### Get Pluto
@@ -133,6 +149,7 @@ md"## TODO
 # ╟─c68317f8-0ee1-11eb-1aaf-2dd3027b5ce8
 # ╟─db77b998-0ee1-11eb-2cf6-a74e9cc5c922
 # ╟─e8f0440a-0ee1-11eb-1baa-4556ed74160c
+# ╟─91c64008-0eeb-11eb-39d8-93d931c759f0
 # ╟─f32be208-0ee1-11eb-2558-b11510ea48ce
 # ╟─fea6cc7e-0ee1-11eb-2c00-756017eda880
 # ╟─20821772-0ee2-11eb-2cbf-e7ddc4baa357

@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.12.3
+# v0.12.4
 
 using Markdown
 using InteractiveUtils
@@ -69,12 +69,40 @@ md"The path between conception and expression, these fields often use domain-app
 "
 
 # ╔═╡ d7902c72-0e6c-11eb-013b-af23e991c932
-md"
-![Electronic Circuit](images/circuit.png)
-![Process Flow](images/process.png)
-![Feynman Diagram](images/feynman.png)
-![Quantum Circuit](images/quantum.png)
-"
+# Load images
+begin
+	struct Electric_Circuit end
+	struct Process_Flow end
+	struct Feynman_Diagram end
+	struct Quantum_Circuit end
+	
+	function Base.show(io::IO, ::MIME"image/png", x::Electric_Circuit)
+		write(io, read(download("https://raw.githubusercontent.com/mu-ziq/CatML.jl/wip/docs/gh-deploy/dist/images/circuit.png")))
+	end
+	function Base.show(io::IO, ::MIME"image/png", x::Process_Flow)
+		write(io, read(download("https://raw.githubusercontent.com/mu-ziq/CatML.jl/wip/docs/gh-deploy/dist/images/process.png")))
+	end
+	function Base.show(io::IO, ::MIME"image/png", x::Feynman_Diagram)
+		write(io, read(download("https://raw.githubusercontent.com/mu-ziq/CatML.jl/wip/docs/gh-deploy/dist/images/feynman.png")))
+	end
+	function Base.show(io::IO, ::MIME"image/png", x::Quantum_Circuit)
+		write(io, read(download("https://raw.githubusercontent.com/mu-ziq/CatML.jl/wip/docs/gh-deploy/dist/images/quantum.png")))
+	end
+
+	nothing
+end
+
+# ╔═╡ e1aa5cf4-0eea-11eb-3579-2372793327d3
+Electric_Circuit()
+
+# ╔═╡ eeae4c44-0eea-11eb-12c4-79580706205f
+Process_Flow()
+
+# ╔═╡ f48fa43c-0eea-11eb-2628-d10df8ee3bc8
+Feynman_Diagram()
+
+# ╔═╡ fc766ab4-0eea-11eb-366b-7118bac69535
+Quantum_Circuit()
 
 # ╔═╡ d26398f6-0e6c-11eb-0967-af43907da648
 md"From these, we can construct *simulations* that allows us to answer questions and solve problems.  These are **digital twins** of physical systems (not just of physical assets, as the term commonly means today).
@@ -95,7 +123,7 @@ The process of modeling in this style can be divided into three distinct parts:
 
 Catlab.jl, specifically, provides the following domain-specific languages (DSLs) implemented in [Julia]() for defining these three layers:
 
-- `@theory`: the algebraic structure that defines possible expressions in a theory
+- `@theory`: the algebraic structure (`@signature` + *axioms*) that defines possible expressions in a theory
 - `@syntax`: an abstract syntax tree of valid expressions tied to the theory
 - `@presentation`: a specific example of the theory
 - `@instance`: a Julia implementation (types and functions) of the theory
@@ -319,11 +347,14 @@ end
 # ╔═╡ becbc10c-0e37-11eb-10be-a9df5b483bd3
 show_diagram(d)
 
+# ╔═╡ 8212fe92-0eed-11eb-30a3-ad25e062d16d
+
+
 # ╔═╡ 572a8492-0e3f-11eb-14b8-a5b3a9605e05
 md"#### Why is this important?
 
 This category allows us to build up **parallel** and **sequential** operations that combine the inputs and outputs in a data flow pipeline.  This is an extremely common abstraction that appears in many different settings, including ETL pipelines, machine-learning pipelines, robotic process automation, process flows, activity sequence, etc.  With this pattern identified and formalized, we can now apply all the rules and receive guarantees they will keep the system consistent and coherent as it operates between the different levels of representation and operationalization.
-
+"
 
 # ╔═╡ f1652868-0e4f-11eb-09e5-7b23b575cb71
 md"# Programming with Pictures
@@ -412,6 +443,10 @@ end
 # ╟─a57cb2b4-0e6c-11eb-22f5-dfafc11247ad
 # ╟─8afb856e-0e6c-11eb-2f69-1ff244024a8b
 # ╟─d7902c72-0e6c-11eb-013b-af23e991c932
+# ╠═e1aa5cf4-0eea-11eb-3579-2372793327d3
+# ╠═eeae4c44-0eea-11eb-12c4-79580706205f
+# ╠═f48fa43c-0eea-11eb-2628-d10df8ee3bc8
+# ╠═fc766ab4-0eea-11eb-366b-7118bac69535
 # ╟─d26398f6-0e6c-11eb-0967-af43907da648
 # ╟─95c8c5c4-0e6c-11eb-0351-8360c7d6532e
 # ╟─79b299d2-0e12-11eb-1f72-4958cad0ad03
@@ -441,6 +476,7 @@ end
 # ╟─2e9508c0-0e3f-11eb-2c63-91d279285ea5
 # ╠═becbc10c-0e37-11eb-10be-a9df5b483bd3
 # ╟─73fd3d5a-0e38-11eb-054b-270be525a13f
+# ╠═8212fe92-0eed-11eb-30a3-ad25e062d16d
 # ╟─572a8492-0e3f-11eb-14b8-a5b3a9605e05
 # ╟─f1652868-0e4f-11eb-09e5-7b23b575cb71
 # ╟─297b65ba-0e54-11eb-0155-a1a875ab76ce
