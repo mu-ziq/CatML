@@ -24,6 +24,12 @@ begin
 	using LightGraphs
 	import GraphPlot
 	using PlutoUI
+
+	using LinearAlgebra	
+	
+	Pkg.add(["Images", "ImageIO", "ImageMagick"])
+	using Images
+
 end
 
 # ╔═╡ cd1b2cfc-0ee3-11eb-377e-7581ddc2366a
@@ -235,9 +241,117 @@ md"## Computational Thinking | MIT 18.S191 Fall 2020
 [YouTube Lectures Playlist](https://www.youtube.com/playlist?list=PLP8iPy9hna6Q2Kr16aWPOKE0dz9OnsnIJ)
 "
 
+# ╔═╡ fd5692b8-0f2d-11eb-2f22-9b212b53857f
+md"### Week 1
+[Lecture notebooks](https://github.com/mitmath/18S191/tree/master/lecture_notebooks/week1)"
+
+# ╔═╡ 328ee246-0f2e-11eb-0414-7bf33f2bc45e
+html"<button onclick=present()>Present</button>"
+
+# ╔═╡ 3dbce6ca-0f2e-11eb-1243-e93dadbf8456
+br = HTML("<br>")
+
+# ╔═╡ 6b01751c-0f2e-11eb-3b3a-577483b3c077
+md"""## Data takes many forms
+- Time series: 
+  - Number of infections per day
+  - Stock price each minute
+  - A piece for violin broadcast over the radio
+$(HTML("<br>"))
+- Video:
+  - The view from a window of a self-driving car
+  - A hurricane monitoring station
+$(HTML("<br>"))
+- Images:
+  - Diseased versus healthy tissue in a scan
+  - Deep space via the Hubble telescope
+  - Can your social media account recognise your friends?
+"""
+
+# ╔═╡ 87483b0c-0f2e-11eb-3821-5f79f1667df9
+md"![](https://i.stack.imgur.com/QQL8X.jpg)"
+
+# ╔═╡ 9e5474a0-0f2e-11eb-2f9d-91a46d94f462
+begin
+	image_text = 
+	md"""
+	## What *is* an image, though?
+	- A grid of coloured squares called **pixels**
+	
+	- A colour for each pair $(i, j)$ of indices
+	
+	- A **discretization**
+	"""
+	
+	image_text
+end
+
+# ╔═╡ e47f3ea6-0f2e-11eb-2ba2-591a26a4bdf6
+url = "https://i.imgur.com/VGPeJ6s.jpg"  
+
+# ╔═╡ ec22e810-0f2e-11eb-3aca-6bb553db9251
+philip_file = download(url, "philip.jpg")  # download to a local file
+
+# ╔═╡ f233e754-0f2e-11eb-19c1-69403dd0f350
+philip = load(philip_file)
+
+# ╔═╡ f9de0a20-0f2e-11eb-0ce2-67ff98a32b56
+typeof(philip)
+
+# ╔═╡ fe06f6f2-0f2e-11eb-2a96-6f45cfbfaf69
+RGBX(0.9, 0.1, 0.1)
+
+# ╔═╡ 88fdbfb6-0f2f-11eb-0757-27c461dfdf1c
+size(philip)
+
+# ╔═╡ 977a0748-0f2f-11eb-2085-3f1cb6fd5c11
+philip[1:1000, 1:400]
+
 # ╔═╡ 0b2f0760-0f1c-11eb-0b09-af2b2d413d45
 md"### Week 5
 [Lecture notebooks](https://github.com/mitmath/18S191/tree/master/lecture_notebooks/week5)"
+
+# ╔═╡ a923da0a-0f2f-11eb-1621-c75bed2f20bb
+begin 
+	(h, w) = size(philip)
+	head = philip[(h ÷ 2):h, (w ÷ 10): (9w ÷ 10)]
+	# `÷` is typed as \div <TAB>  -- integer division
+end
+
+# ╔═╡ b22370de-0f2f-11eb-3c97-b96afd4a4ae5
+size(head)
+
+# ╔═╡ b9ead0c8-0f2f-11eb-143f-cdeff26cb259
+[head head]
+
+# ╔═╡ c16d4e52-0f2f-11eb-38ea-bbf5ede155fe
+[
+ head                   reverse(head, dims=2)
+ reverse(head, dims=1)  reverse(reverse(head, dims=1), dims=2)
+]
+
+# ╔═╡ d48d36a0-0f2f-11eb-1a96-479132494bc0
+new_phil = copy(head)
+
+# ╔═╡ df4cf4ea-0f2f-11eb-308c-0d3199174ddd
+red = RGB(1, 0, 0)
+
+# ╔═╡ e6f39df2-0f2f-11eb-1acd-1d2ada981e24
+for i in 1:100
+	for j in 1:300
+		new_phil[i, j] = red
+	end
+end
+
+# ╔═╡ f55b0a38-0f2f-11eb-3af1-4757608b3f99
+new_phil
+
+# ╔═╡ 07493792-0f30-11eb-2daa-6552a1ec9e72
+begin 
+	new_phil2 = copy(new_phil)
+	new_phil2[100:200, 1:100] .= RGB(0, 1, 0)
+	new_phil2
+end
 
 # ╔═╡ 2fd9797e-0f1c-11eb-35bb-f54828fd8228
 md"#### Graphs are matrices"
@@ -325,7 +439,29 @@ am = Matrix(adjacency_matrix(graph))
 # ╠═6348edce-edef-11ea-1ab4-019514eb414f
 # ╟─34d1fb4c-0f01-11eb-0c08-8dd2e1b7c5b4
 # ╟─be7ff340-0f00-11eb-0b0b-7b3605fde940
-# ╟─0b2f0760-0f1c-11eb-0b09-af2b2d413d45
+# ╟─fd5692b8-0f2d-11eb-2f22-9b212b53857f
+# ╟─328ee246-0f2e-11eb-0414-7bf33f2bc45e
+# ╟─3dbce6ca-0f2e-11eb-1243-e93dadbf8456
+# ╟─6b01751c-0f2e-11eb-3b3a-577483b3c077
+# ╠═87483b0c-0f2e-11eb-3821-5f79f1667df9
+# ╟─9e5474a0-0f2e-11eb-2f9d-91a46d94f462
+# ╠═e47f3ea6-0f2e-11eb-2ba2-591a26a4bdf6
+# ╠═ec22e810-0f2e-11eb-3aca-6bb553db9251
+# ╠═f233e754-0f2e-11eb-19c1-69403dd0f350
+# ╠═f9de0a20-0f2e-11eb-0ce2-67ff98a32b56
+# ╠═fe06f6f2-0f2e-11eb-2a96-6f45cfbfaf69
+# ╠═88fdbfb6-0f2f-11eb-0757-27c461dfdf1c
+# ╠═977a0748-0f2f-11eb-2085-3f1cb6fd5c11
+# ╠═0b2f0760-0f1c-11eb-0b09-af2b2d413d45
+# ╠═a923da0a-0f2f-11eb-1621-c75bed2f20bb
+# ╠═b22370de-0f2f-11eb-3c97-b96afd4a4ae5
+# ╠═b9ead0c8-0f2f-11eb-143f-cdeff26cb259
+# ╠═c16d4e52-0f2f-11eb-38ea-bbf5ede155fe
+# ╠═d48d36a0-0f2f-11eb-1a96-479132494bc0
+# ╠═df4cf4ea-0f2f-11eb-308c-0d3199174ddd
+# ╠═e6f39df2-0f2f-11eb-1acd-1d2ada981e24
+# ╠═f55b0a38-0f2f-11eb-3af1-4757608b3f99
+# ╠═07493792-0f30-11eb-2daa-6552a1ec9e72
 # ╟─2fd9797e-0f1c-11eb-35bb-f54828fd8228
 # ╟─ba97add8-0f21-11eb-3060-5ff4df356c87
 # ╠═f38bcb10-0f1c-11eb-031d-5742dd68e41a
