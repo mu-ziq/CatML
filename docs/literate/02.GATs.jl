@@ -147,29 +147,26 @@ The process of modeling in this style can be divided into three distinct parts:
 - Theory: the encoding of the rules of the system into a *univeral algebra*
 - Syntax: from the theory specification, a set of notations are derived for expressing situations within the theory
 - Instance: directly connect with the computing implementation best-suited to simulate the situations according to the rules of the theory.
+"
 
-Catlab.jl, specifically, provides the following domain-specific languages (DSLs) implemented in [Julia]() for defining these three layers:
+# ╔═╡ 31a41642-0f03-11eb-29ae-c78bcebcdf49
+GAT_Slide()
+
+# ╔═╡ 26992ca6-0f03-11eb-3a7b-23bec06ec78d
+md"Catlab.jl, specifically, provides the following domain-specific languages (DSLs) implemented in [Julia]() for defining these three layers:
 
 - `@theory`: the algebraic structure (`@signature` + *axioms*) that defines possible expressions in a theory
 - `@syntax`: an abstract syntax tree of valid expressions tied to the theory
 - `@presentation`: a specific example of the theory
 - `@instance`: a Julia implementation (types and functions) of the theory
 - `@program`: express formulas using program notation
-
-These will be elaborated on in the following sections.
 "
 
-# ╔═╡ 31a41642-0f03-11eb-29ae-c78bcebcdf49
-
-
-# ╔═╡ 26992ca6-0f03-11eb-3a7b-23bec06ec78d
-
-
 # ╔═╡ 4482b318-0f03-11eb-1efd-df434a0ad470
-
+DSLs_Slide()
 
 # ╔═╡ 428dd8da-0f03-11eb-258a-cd8cc3a94b09
-
+md"These will be elaborated on in the following sections."
 
 # ╔═╡ 4e216c4a-0e16-11eb-0e55-ab5ef3f2f4a7
 md" ### Example: Theory of the Category of Natural Numbers
@@ -178,7 +175,7 @@ md" ### Example: Theory of the Category of Natural Numbers
 "
 
 # ╔═╡ 5aac4ce0-0f02-11eb-32d9-070c311a69b0
-
+FinOrd_Slide()
 
 # ╔═╡ 604595da-0f02-11eb-2a66-2fdfb2edf589
 md"Let us formally define what we mean when we say *Category*.  Specifically, what is our *theory* of the concept of a category.  We use the first DSL, `@theory`, to encode our definition:
@@ -485,8 +482,8 @@ function pushout(span::Span(<:FinOrdMap, <:FinOrdMap))
 end
 
 # ╔═╡ Cell order:
-# ╠═855fc742-0e07-11eb-1172-d7e7a0c01d7e
-# ╠═d7902c72-0e6c-11eb-013b-af23e991c932
+# ╟─855fc742-0e07-11eb-1172-d7e7a0c01d7e
+# ╟─d7902c72-0e6c-11eb-013b-af23e991c932
 # ╟─eaf00702-0e07-11eb-2030-7dfa450e22ad
 # ╟─c0d2013e-0e0c-11eb-206b-eff9c574914c
 # ╟─bde0a2d4-0e6c-11eb-1dcf-5b4501121603
@@ -499,11 +496,11 @@ end
 # ╠═fc766ab4-0eea-11eb-366b-7118bac69535
 # ╟─d26398f6-0e6c-11eb-0967-af43907da648
 # ╟─95c8c5c4-0e6c-11eb-0351-8360c7d6532e
-# ╠═79b299d2-0e12-11eb-1f72-4958cad0ad03
+# ╟─79b299d2-0e12-11eb-1f72-4958cad0ad03
 # ╠═31a41642-0f03-11eb-29ae-c78bcebcdf49
-# ╠═26992ca6-0f03-11eb-3a7b-23bec06ec78d
+# ╟─26992ca6-0f03-11eb-3a7b-23bec06ec78d
 # ╠═4482b318-0f03-11eb-1efd-df434a0ad470
-# ╠═428dd8da-0f03-11eb-258a-cd8cc3a94b09
+# ╟─428dd8da-0f03-11eb-258a-cd8cc3a94b09
 # ╟─4e216c4a-0e16-11eb-0e55-ab5ef3f2f4a7
 # ╠═5aac4ce0-0f02-11eb-32d9-070c311a69b0
 # ╟─604595da-0f02-11eb-2a66-2fdfb2edf589
