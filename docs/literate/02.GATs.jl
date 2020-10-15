@@ -348,7 +348,18 @@ end
 show_diagram(d)
 
 # ╔═╡ 8212fe92-0eed-11eb-30a3-ad25e062d16d
+# Load images
+begin
+	struct PresentationSlide end
+	
+	function Base.show(io::IO, ::MIME"image/png", x::PresentationSlide)
+		write(io, read(download("https://raw.githubusercontent.com/mu-ziq/CatML.jl/wip/docs/gh-deploy/dist/images/presentation.png")))
+	end
+	nothing
+end
 
+# ╔═╡ f162f626-0eed-11eb-0d7b-29afbe605963
+PresentationSlide()
 
 # ╔═╡ 572a8492-0e3f-11eb-14b8-a5b3a9605e05
 md"#### Why is this important?
@@ -363,6 +374,20 @@ One of the primary reasons for working in applied category theory is that the th
 
 Some of the constructions used and the ideas they generalize and combine are described in the following section.
 "
+
+# ╔═╡ a74f4ff2-0eee-11eb-2ccf-abe3c21cdc81
+# Load images
+begin
+	struct PWP_Slide end
+	
+	function Base.show(io::IO, ::MIME"image/png", x::PWP_Slide)
+		write(io, read(download("https://raw.githubusercontent.com/mu-ziq/CatML.jl/wip/docs/gh-deploy/dist/images/programming_with_pictures.png")))
+	end
+	nothing
+end
+
+# ╔═╡ d524af26-0eee-11eb-2229-a52e0af7cbca
+PWP_Slide()
 
 # ╔═╡ 297b65ba-0e54-11eb-0155-a1a875ab76ce
 md"## Generalized Constructions
@@ -476,9 +501,12 @@ end
 # ╟─2e9508c0-0e3f-11eb-2c63-91d279285ea5
 # ╠═becbc10c-0e37-11eb-10be-a9df5b483bd3
 # ╟─73fd3d5a-0e38-11eb-054b-270be525a13f
-# ╠═8212fe92-0eed-11eb-30a3-ad25e062d16d
+# ╟─8212fe92-0eed-11eb-30a3-ad25e062d16d
+# ╠═f162f626-0eed-11eb-0d7b-29afbe605963
 # ╟─572a8492-0e3f-11eb-14b8-a5b3a9605e05
 # ╟─f1652868-0e4f-11eb-09e5-7b23b575cb71
+# ╟─a74f4ff2-0eee-11eb-2ccf-abe3c21cdc81
+# ╠═d524af26-0eee-11eb-2229-a52e0af7cbca
 # ╟─297b65ba-0e54-11eb-0155-a1a875ab76ce
 # ╟─3ec91070-0e54-11eb-0386-c98335d1cf39
 # ╠═946c2fda-0e54-11eb-1a52-9dcf21f9cecc
