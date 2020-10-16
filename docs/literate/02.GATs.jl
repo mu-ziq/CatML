@@ -31,57 +31,6 @@ begin
 	import SCS
 end
 
-# ╔═╡ d7902c72-0e6c-11eb-013b-af23e991c932
-# Load images
-begin
-	struct Electric_Circuit end
-	function Base.show(io::IO, ::MIME"image/png", x::Electric_Circuit)
-		write(io, read(download("https://raw.githubusercontent.com/mu-ziq/CatML.jl/wip/docs/gh-deploy/dist/images/circuit.png")))
-	end
-	
-	struct Process_Flow end
-	function Base.show(io::IO, ::MIME"image/png", x::Process_Flow)
-		write(io, read(download("https://raw.githubusercontent.com/mu-ziq/CatML.jl/wip/docs/gh-deploy/dist/images/process.png")))
-	end
-	
-	struct Feynman_Diagram end
-	function Base.show(io::IO, ::MIME"image/png", x::Feynman_Diagram)
-		write(io, read(download("https://raw.githubusercontent.com/mu-ziq/CatML.jl/wip/docs/gh-deploy/dist/images/feynman.png")))
-	end
-
-	struct Quantum_Circuit end
-	function Base.show(io::IO, ::MIME"image/png", x::Quantum_Circuit)
-		write(io, read(download("https://raw.githubusercontent.com/mu-ziq/CatML.jl/wip/docs/gh-deploy/dist/images/quantum.png")))
-	end
-
-	struct PresentationSlide end
-	function Base.show(io::IO, ::MIME"image/png", x::PresentationSlide)
-		write(io, read(download("https://raw.githubusercontent.com/mu-ziq/CatML.jl/wip/docs/gh-deploy/dist/images/presentation.png")))
-	end
-	
-	struct PWP_Slide end
-	function Base.show(io::IO, ::MIME"image/png", x::PWP_Slide)
-		write(io, read(download("https://raw.githubusercontent.com/mu-ziq/CatML.jl/wip/docs/gh-deploy/dist/images/programming_with_pictures.png")))
-	end
-
-	struct GAT_Slide end
-	function Base.show(io::IO, ::MIME"image/png", x::GAT_Slide)
-		write(io, read(download("https://raw.githubusercontent.com/mu-ziq/CatML.jl/wip/docs/gh-deploy/dist/images/gat.png")))
-	end
-
-	struct DSLs_Slide end
-	function Base.show(io::IO, ::MIME"image/png", x::DSLs_Slide)
-		write(io, read(download("https://raw.githubusercontent.com/mu-ziq/CatML.jl/wip/docs/gh-deploy/dist/images/dsls.png")))
-	end
-
-	struct FinOrd_Slide end
-	function Base.show(io::IO, ::MIME"image/png", x::FinOrd_Slide)
-		write(io, read(download("https://raw.githubusercontent.com/mu-ziq/CatML.jl/wip/docs/gh-deploy/dist/images/finord.png")))
-	end
-
-	nothing
-end
-
 # ╔═╡ eaf00702-0e07-11eb-2030-7dfa450e22ad
 md"
 # Generalized Algebraic Theories (GATs)
@@ -120,16 +69,17 @@ md"The path between conception and expression, these fields often use domain-app
 "
 
 # ╔═╡ e1aa5cf4-0eea-11eb-3579-2372793327d3
-Electric_Circuit()
+md"![](https://raw.githubusercontent.com/mu-ziq/CatML.jl/wip/docs/gh-deploy/dist/images/circuit.png)"
 
 # ╔═╡ eeae4c44-0eea-11eb-12c4-79580706205f
-Process_Flow()
+md"![](https://raw.githubusercontent.com/mu-ziq/CatML.jl/wip/docs/gh-deploy/dist/images/process.png)"
 
 # ╔═╡ f48fa43c-0eea-11eb-2628-d10df8ee3bc8
-Feynman_Diagram()
+md"![](https://raw.githubusercontent.com/mu-ziq/CatML.jl/wip/docs/gh-deploy/dist/images/feynman.png)"
+
 
 # ╔═╡ fc766ab4-0eea-11eb-366b-7118bac69535
-Quantum_Circuit()
+md"![](https://raw.githubusercontent.com/mu-ziq/CatML.jl/wip/docs/gh-deploy/dist/images/quantum.png)"
 
 # ╔═╡ d26398f6-0e6c-11eb-0967-af43907da648
 md"From these, we can construct *simulations* that allows us to answer questions and solve problems.  These are **digital twins** of physical systems (not just of physical assets, as the term commonly means today).
@@ -150,7 +100,7 @@ The process of modeling in this style can be divided into three distinct parts:
 "
 
 # ╔═╡ 31a41642-0f03-11eb-29ae-c78bcebcdf49
-GAT_Slide()
+md"![](https://raw.githubusercontent.com/mu-ziq/CatML.jl/wip/docs/gh-deploy/dist/images/gat.png)"
 
 # ╔═╡ 26992ca6-0f03-11eb-3a7b-23bec06ec78d
 md"Catlab.jl, specifically, provides the following domain-specific languages (DSLs) implemented in [Julia]() for defining these three layers:
@@ -163,7 +113,8 @@ md"Catlab.jl, specifically, provides the following domain-specific languages (DS
 "
 
 # ╔═╡ 4482b318-0f03-11eb-1efd-df434a0ad470
-DSLs_Slide()
+md"![](https://raw.githubusercontent.com/mu-ziq/CatML.jl/wip/docs/gh-deploy/dist/images/dsls.png)"
+
 
 # ╔═╡ 428dd8da-0f03-11eb-258a-cd8cc3a94b09
 md"These will be elaborated on in the following sections."
@@ -175,7 +126,7 @@ md" ### Example: Theory of the Category of Natural Numbers
 "
 
 # ╔═╡ 5aac4ce0-0f02-11eb-32d9-070c311a69b0
-FinOrd_Slide()
+md"![](https://raw.githubusercontent.com/mu-ziq/CatML.jl/wip/docs/gh-deploy/dist/images/finord.png)"
 
 # ╔═╡ 604595da-0f02-11eb-2a66-2fdfb2edf589
 md"Let us formally define what we mean when we say *Category*.  Specifically, what is our *theory* of the concept of a category.  We use the first DSL, `@theory`, to encode our definition:
@@ -302,7 +253,7 @@ In order to solve more interesting problems, we can use a more powerful theory. 
 "
 
 # ╔═╡ f162f626-0eed-11eb-0d7b-29afbe605963
-PresentationSlide()
+md"![](https://raw.githubusercontent.com/mu-ziq/CatML.jl/wip/docs/gh-deploy/dist/images/presentation.png)"
 
 # ╔═╡ c50b7cbe-0f02-11eb-36ad-49b01ba99981
 md"
@@ -409,7 +360,8 @@ Some of the constructions used and the ideas they generalize and combine are des
 "
 
 # ╔═╡ d524af26-0eee-11eb-2229-a52e0af7cbca
-PWP_Slide()
+md"![](https://raw.githubusercontent.com/mu-ziq/CatML.jl/wip/docs/gh-deploy/dist/images/programming_with_pictures.png)"
+
 
 # ╔═╡ 297b65ba-0e54-11eb-0155-a1a875ab76ce
 md"## Generalized Constructions
@@ -483,26 +435,25 @@ end
 
 # ╔═╡ Cell order:
 # ╟─855fc742-0e07-11eb-1172-d7e7a0c01d7e
-# ╟─d7902c72-0e6c-11eb-013b-af23e991c932
 # ╟─eaf00702-0e07-11eb-2030-7dfa450e22ad
 # ╟─c0d2013e-0e0c-11eb-206b-eff9c574914c
 # ╟─bde0a2d4-0e6c-11eb-1dcf-5b4501121603
 # ╟─ad52fa34-0e6c-11eb-1290-953177813bee
 # ╟─a57cb2b4-0e6c-11eb-22f5-dfafc11247ad
 # ╟─8afb856e-0e6c-11eb-2f69-1ff244024a8b
-# ╠═e1aa5cf4-0eea-11eb-3579-2372793327d3
-# ╠═eeae4c44-0eea-11eb-12c4-79580706205f
-# ╠═f48fa43c-0eea-11eb-2628-d10df8ee3bc8
-# ╠═fc766ab4-0eea-11eb-366b-7118bac69535
+# ╟─e1aa5cf4-0eea-11eb-3579-2372793327d3
+# ╟─eeae4c44-0eea-11eb-12c4-79580706205f
+# ╟─f48fa43c-0eea-11eb-2628-d10df8ee3bc8
+# ╟─fc766ab4-0eea-11eb-366b-7118bac69535
 # ╟─d26398f6-0e6c-11eb-0967-af43907da648
 # ╟─95c8c5c4-0e6c-11eb-0351-8360c7d6532e
 # ╟─79b299d2-0e12-11eb-1f72-4958cad0ad03
-# ╠═31a41642-0f03-11eb-29ae-c78bcebcdf49
+# ╟─31a41642-0f03-11eb-29ae-c78bcebcdf49
 # ╟─26992ca6-0f03-11eb-3a7b-23bec06ec78d
-# ╠═4482b318-0f03-11eb-1efd-df434a0ad470
+# ╟─4482b318-0f03-11eb-1efd-df434a0ad470
 # ╟─428dd8da-0f03-11eb-258a-cd8cc3a94b09
 # ╟─4e216c4a-0e16-11eb-0e55-ab5ef3f2f4a7
-# ╠═5aac4ce0-0f02-11eb-32d9-070c311a69b0
+# ╟─5aac4ce0-0f02-11eb-32d9-070c311a69b0
 # ╟─604595da-0f02-11eb-2a66-2fdfb2edf589
 # ╠═06550dbe-0e1a-11eb-0c47-113a4b2fcc20
 # ╟─03bbcd0e-0e1a-11eb-0084-8f79dcf4a230
@@ -515,7 +466,7 @@ end
 # ╠═9698ec72-0e26-11eb-3cba-1d4c3e291fd9
 # ╟─db429174-0e2c-11eb-3884-57db68ea09f5
 # ╟─b6b8543c-0e2d-11eb-3081-0143323aa645
-# ╠═f162f626-0eed-11eb-0d7b-29afbe605963
+# ╟─f162f626-0eed-11eb-0d7b-29afbe605963
 # ╟─c50b7cbe-0f02-11eb-36ad-49b01ba99981
 # ╟─75295d5e-0e3c-11eb-1e9a-339b0874a83a
 # ╠═6671f9e6-0e33-11eb-220f-87df581aaf75
@@ -533,7 +484,7 @@ end
 # ╟─73fd3d5a-0e38-11eb-054b-270be525a13f
 # ╟─572a8492-0e3f-11eb-14b8-a5b3a9605e05
 # ╟─f1652868-0e4f-11eb-09e5-7b23b575cb71
-# ╠═d524af26-0eee-11eb-2229-a52e0af7cbca
+# ╟─d524af26-0eee-11eb-2229-a52e0af7cbca
 # ╟─297b65ba-0e54-11eb-0155-a1a875ab76ce
 # ╟─3ec91070-0e54-11eb-0386-c98335d1cf39
 # ╠═946c2fda-0e54-11eb-1a52-9dcf21f9cecc
