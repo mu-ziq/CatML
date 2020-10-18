@@ -291,7 +291,7 @@ The `braid` operation and operator is a special morphism that swaps the position
 
 # ╔═╡ d0e1434c-0e3b-11eb-0f94-abd5db4aea09
 md"### Presentation
-Instead a mapping this category theory to a Julia implementation directly, we can **generate** a category by providing an example *presentation*, `P`.
+Instead of mapping this category theory to a Julia implementation directly, we can **generate** a category by providing an example *presentation*, `P`.
 "
 
 # ╔═╡ e0b4d83e-0e30-11eb-3fa6-c13871904aac
@@ -402,6 +402,8 @@ end
 
 # ╔═╡ e02290a0-0e55-11eb-2f52-35602e9f0f3b
 md"### Coequalizers
+
+![](https://raw.githubusercontent.com/mu-ziq/CatML.jl/wip/docs/gh-deploy/dist/images/coequalizers.png)
 
 The coequalizer construction:
 
