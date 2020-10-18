@@ -291,7 +291,7 @@ The `braid` operation and operator is a special morphism that swaps the position
 
 # ╔═╡ d0e1434c-0e3b-11eb-0f94-abd5db4aea09
 md"### Presentation
-Instead of mapping this category theory to a Julia implementation directly, we can **generate** a category by providing an example *presentation*, `P`.
+Instead a mapping this category theory to a Julia implementation directly, we can **generate** a category by providing an example *presentation*, `P`.
 "
 
 # ╔═╡ e0b4d83e-0e30-11eb-3fa6-c13871904aac
@@ -414,6 +414,21 @@ E\xleftarrow{u} A\leftleftarrows B
 captures the idea of an *equivalence relation*.  $A$ and $B$ are related by two functions, $f$ and $g$, that map the same input $B$ to the same output $A$.
 "
 
+# ╔═╡ 778da16a-10dd-11eb-2bed-2f7c41e4d804
+function coequalizer(f::FinOrdMap, g::FinOrdMap)
+	@assert dom(f) == dom(g) && codom(f) == codom(g)
+	m, n = dom(f).n, codom(f).n
+	sets = IntDisjointSets(n)
+	for i in 1:m
+		union!(sets, f(i), g(i))
+	end
+	h = [ find_root(sets, i) for i in 1:n ]
+	roots = unique!(sort(h))
+	FinOrdMap([ searchsortedfirst(roots, r)
+			for r in h],
+		length(roots))
+end
+
 # ╔═╡ 1bf71d5a-0e57-11eb-2b67-63e3f86a8737
 md"### Pushouts
 
@@ -493,5 +508,6 @@ end
 # ╟─4c62fd26-0e55-11eb-3a35-9f9041680b3c
 # ╠═b0372a0c-0e55-11eb-2033-91ac11f8d181
 # ╟─e02290a0-0e55-11eb-2f52-35602e9f0f3b
+# ╠═778da16a-10dd-11eb-2bed-2f7c41e4d804
 # ╟─1bf71d5a-0e57-11eb-2b67-63e3f86a8737
 # ╠═ea318228-0e57-11eb-09d6-bb54b8d0d2e2
